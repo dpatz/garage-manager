@@ -1,4 +1,4 @@
-# Installing Tailwind CSS
+# Install Tailwind CSS
 Install dependencies:
 - `npm install --save-dev tailwindcss postcss-preset-env`
 - `npm install @zeit/next-css`

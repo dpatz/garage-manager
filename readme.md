@@ -1,13 +1,19 @@
-- [Installing Tailwind CSS](docs/installing_tailwind_css.md)
-- [Installing TypeScript](docs/installing_typescript.md)
+- [Install Tailwind CSS](docs/install_tailwind_css.md)
+- [Install TypeScript](docs/install_typescript.md)
+- [Install Cypress](docs/install_cypress.md)
 
 # TODO:
-- [ ] Basic tests
+- [x] Tailwind CSS
+- [x] TypeScript
+- [x] Cypress
+- [ ] Cypress ESLint
 - [ ] CI
 - [ ] MirageJS
 - [ ] Percy
 - [ ] Sentry
 - [ ] Prettier
 - [ ] Code Climate or Codacy
+- [ ] Coverage
 - [ ] AccessLint
 - [ ] Lighthouse (Zeit)
+- [ ] Purgecss
