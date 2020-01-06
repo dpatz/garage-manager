@@ -1,0 +1,17 @@
+version: 2.1
+orbs:
+  cypress: cypress-io/cypress@1
+workflows:
+  build:
+    jobs:
+      - cypress/install:
+          build: npm install
+      - cypress/run:
+          requires:
+            - cypress/install
+          record: true
+          start: npm run dev
+          wait-on: http://localhost:3000
+          group: all tests
+          # parallel: true
+          # parallelism: 10
