@@ -2,7 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import '../styles/index.css';
 
-const Home = () => (
+const Home = (): JSX.Element => (
   <div>
     <Head>
       <title>Garage Manager</title>

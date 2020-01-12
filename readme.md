@@ -4,13 +4,15 @@
 - [Install TypeScript](docs/install_typescript.md)
 - [Install Cypress](docs/install_cypress.md)
 - [Setup CircleCI](docs/setup_circle_ci.md)
+- [Install ESLint](docs/install_eslint.md)
 
 ## TODO:
 - [x] Tailwind CSS
 - [x] TypeScript
 - [x] Cypress
 - [x] CI
-- [ ] Cypress ESLint
+- [x] Cypress ESLint
+- [ ] Report errors (https://github.com/cypress-io/cypress-example-circleci-orb)
 - [ ] MirageJS
 - [ ] Percy
 - [ ] Sentry

@@ -1,11 +1,21 @@
 version: 2.1
 orbs:
   cypress: cypress-io/cypress@1
+jobs:
+  lint:
+    executor: cypress/base-10
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run: npx eslint . --ext .js,.jsx,.ts,.tsx
 workflows:
   build:
     jobs:
       - cypress/install:
           build: npm install
+      - lint:
+          requires:
+            - cypress/install
       - cypress/run:
           requires:
             - cypress/install
