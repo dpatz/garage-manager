@@ -1,13 +1,16 @@
+# Garage Manager [![CircleCI](https://circleci.com/gh/dpatz/garage-manager.svg?style=svg)](https://circleci.com/gh/dpatz/garage-manager)
+
 - [Install Tailwind CSS](docs/install_tailwind_css.md)
 - [Install TypeScript](docs/install_typescript.md)
 - [Install Cypress](docs/install_cypress.md)
+- [Setup CircleCI](docs/setup_circle_ci.md)
 
-# TODO:
+## TODO:
 - [x] Tailwind CSS
 - [x] TypeScript
 - [x] Cypress
+- [x] CI
 - [ ] Cypress ESLint
-- [ ] CI
 - [ ] MirageJS
 - [ ] Percy
 - [ ] Sentry
@@ -17,3 +20,6 @@
 - [ ] AccessLint
 - [ ] Lighthouse (Zeit)
 - [ ] Purgecss
+- [ ] Black
+- [ ] Flake8
+- [ ] Mypy
