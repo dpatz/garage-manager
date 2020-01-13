@@ -5,37 +5,37 @@ module.exports = {
     "cypress/globals": true
   },
   extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:@typescript-eslint/recommended',
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
     "plugin:cypress/recommended",
+    "prettier",
+    "prettier/@typescript-eslint",
+    "prettier/react",
   ],
   globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly',
+    // Atomics: "readonly",
+    // SharedArrayBuffer: "readonly",
     require: true,
-    module: true,
+    module: true
   },
-  parser: '@typescript-eslint/parser',
+  parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
-      jsx: true,
+      jsx: true
     },
     ecmaVersion: 2018,
-    sourceType: 'module',
+    sourceType: "module"
   },
-  plugins: [
-    'react',
-    '@typescript-eslint',
-    'cypress',
-  ],
+  plugins: ["react", "@typescript-eslint", "cypress", "prettier"],
   rules: {
-    "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".jsx"] }],
+    "react/jsx-filename-extension": [1, { extensions: [".tsx", ".jsx"] }],
+    "prettier/prettier": "error",
   },
   settings: {
     react: {
-    version: "detect"
-  }
+      version: "detect"
+    }
   }
 };

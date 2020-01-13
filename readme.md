@@ -14,8 +14,8 @@
 - [x] Cypress
 - [x] CI
 - [x] Cypress ESLint
-- [ ] Report errors (https://github.com/cypress-io/cypress-example-circleci-orb)
 - [x] Prettier
+- [ ] Report errors (https://github.com/cypress-io/cypress-example-circleci-orb)
 - [ ] MirageJS
 - [ ] Percy
 - [ ] Sentry
