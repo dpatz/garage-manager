@@ -4,7 +4,8 @@
 - [Install Tailwind CSS](docs/install_tailwind_css.md)
 - [Install TypeScript](docs/install_typescript.md)
 - [Install Cypress](docs/install_cypress.md)
-- [Setup CircleCI](docs/setup_circle_ci.md)
+- [Setup CircleCI](docs/setup_circleci.md)
+- [Setup CircleCI/Cypress Reporting](docs/setup_circleci_cypress_reporting.md)
 - [Install ESLint](docs/install_eslint.md)
 - [Install Prettier](docs/install_prettier.md)
 
@@ -15,7 +16,7 @@
 - [x] CI
 - [x] Cypress ESLint
 - [x] Prettier
-- [ ] Report errors (https://github.com/cypress-io/cypress-example-circleci-orb)
+- [x] Report errors (https://github.com/cypress-io/cypress-example-circleci-orb)
 - [ ] MirageJS
 - [ ] Percy
 - [ ] Sentry
