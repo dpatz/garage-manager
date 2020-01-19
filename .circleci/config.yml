@@ -23,5 +23,9 @@ workflows:
           start: npm run dev
           wait-on: http://localhost:3000
           group: all tests
+          command: npm run test_with_reporting
           # parallel: true
           # parallelism: 10
+          post-steps:
+            - store_test_results:
+                path: cypress/results
