@@ -12,7 +12,7 @@ module.exports = {
     "plugin:cypress/recommended",
     "prettier",
     "prettier/@typescript-eslint",
-    "prettier/react",
+    "prettier/react"
   ],
   globals: {
     // Atomics: "readonly",
@@ -31,7 +31,7 @@ module.exports = {
   plugins: ["react", "@typescript-eslint", "cypress", "prettier"],
   rules: {
     "react/jsx-filename-extension": [1, { extensions: [".tsx", ".jsx"] }],
-    "prettier/prettier": "error",
+    "prettier/prettier": "error"
   },
   settings: {
     react: {
