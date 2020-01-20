@@ -31,8 +31,20 @@ module.exports = {
   plugins: ["react", "@typescript-eslint", "cypress", "prettier"],
   rules: {
     "react/jsx-filename-extension": [1, { extensions: [".tsx", ".jsx"] }],
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-var-requires": "off"
   },
+  "overrides": [
+    {
+      // enable the rule specifically for TypeScript files
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "@typescript-eslint/explicit-function-return-type": ["error"],
+        "@typescript-eslint/no-var-requires": ["error"]
+      }
+    }
+  ],
   settings: {
     react: {
       version: "detect"
