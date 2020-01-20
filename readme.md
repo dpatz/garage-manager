@@ -8,6 +8,7 @@
 - [Setup CircleCI/Cypress Reporting](docs/setup_circleci_cypress_reporting.md)
 - [Install ESLint](docs/install_eslint.md)
 - [Install Prettier](docs/install_prettier.md)
+- [Install Percy](docs/install_percy.md)
 
 ## TODO:
 - [x] Tailwind CSS

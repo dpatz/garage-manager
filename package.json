@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "npx tsc && npx eslint '*/**/*.{js,ts,tsx}' --fix",
     "format": "npx prettier --write '*/**/*.{json,js,ts,tsx}'",
-    "test_with_reporting": "npx cypress run --record --reporter cypress-multi-reporters --reporter-options configFile=reporter-config.json"
+    "test_local": "npx cypress run --reporter cypress-multi-reporters --reporter-options configFile=reporter-config.json",
+    "test_ci": "npx percy exec -- cypress run --record --reporter cypress-multi-reporters --reporter-options configFile=reporter-config.json"
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
@@ -17,6 +18,7 @@
     "react-dom": "16.12.0"
   },
   "devDependencies": {
+    "@percy/cypress": "^2.2.0",
     "@types/node": "^13.1.8",
     "@types/react": "^16.9.17",
     "@typescript-eslint/eslint-plugin": "^2.16.0",

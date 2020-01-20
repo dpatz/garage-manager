@@ -23,7 +23,7 @@ workflows:
           start: npm run dev
           wait-on: http://localhost:3000
           group: all tests
-          command: npm run test_with_reporting
+          command: npm run test_ci
           # parallel: true
           # parallelism: 10
           post-steps:
