@@ -19,13 +19,13 @@
 - [x] Prettier
 - [x] Report errors (https://github.com/cypress-io/cypress-example-circleci-orb)
 - [x] Percy
-- [ ] MirageJS
+- [x] AccessLint
 - [ ] Sentry
-- [ ] Code Climate or Codacy
 - [ ] Coverage
-- [ ] AccessLint
 - [ ] Lighthouse (Zeit)
 - [ ] Purgecss
 - [ ] Black
 - [ ] Flake8
 - [ ] Mypy
+- [ ] MirageJS
+- [ ] Code Climate or Codacy
