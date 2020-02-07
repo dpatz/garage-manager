@@ -1,0 +1,16 @@
+{
+  "env": {
+    "SENTRY_DSN": "@sentry_dsn",
+    "SENTRY_AUTH_TOKEN": "@sentry_auth_token",
+    "SENTRY_ORG": "@sentry_org",
+    "SENTRY_PROJECT": "@sentry_project"
+  },
+  "build": {
+    "env": {
+      "SENTRY_DSN": "@sentry_dsn",
+      "SENTRY_AUTH_TOKEN": "@sentry_auth_token",
+      "SENTRY_ORG": "@sentry_org",
+      "SENTRY_PROJECT": "@sentry_project"
+    }
+  }
+}

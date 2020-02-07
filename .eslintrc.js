@@ -17,6 +17,7 @@ module.exports = {
   globals: {
     // Atomics: "readonly",
     // SharedArrayBuffer: "readonly",
+    process: true,
     require: true,
     module: true
   },
