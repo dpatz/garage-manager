@@ -8,12 +8,6 @@ jobs:
       - attach_workspace:
           at: ~/
       - run: npm run lint
-  store_coverage:
-    executor: cypress/base-10
-    steps:
-      - attach_workspace:
-          at: ~/
-      - run: npx codecov
 workflows:
   build:
     jobs:
@@ -35,6 +29,4 @@ workflows:
           post-steps:
             - store_test_results:
                 path: cypress/results
-      - store_coverage:
-          requires:
-            - cypress/run
+            - run: npx codecov
