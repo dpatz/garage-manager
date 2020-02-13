@@ -11,6 +11,7 @@
 - [Install Prettier](docs/install_prettier.md)
 - [Install Percy](docs/install_percy.md)
 - [Install Sentry](docs/install_sentry.md)
+- [Install Code Coverage](docs/setup_codecov.md)
 
 ## TODO:
 
@@ -24,7 +25,7 @@
 - [x] Percy
 - [x] AccessLint
 - [x] Sentry
-- [ ] Coverage
+- [x] Coverage
 - [ ] Lighthouse (Zeit)
 - [ ] Purgecss
 - [ ] Black
