@@ -1,6 +1,7 @@
 import React from "react";
 import App from "next/app";
 import * as Sentry from "@sentry/node";
+import "../styles/index.css";
 
 Sentry.init({
   dsn: process.env.SENTRY_DSN,

@@ -12,6 +12,7 @@
 - [Install Percy](docs/install_percy.md)
 - [Install Sentry](docs/install_sentry.md)
 - [Install Code Coverage](docs/setup_codecov.md)
+- [Install Purgecss](docs/install_purgecss.md)
 
 ## TODO:
 
@@ -26,10 +27,12 @@
 - [x] AccessLint
 - [x] Sentry
 - [x] Coverage
-- [ ] Lighthouse (Zeit)
-- [ ] Purgecss
+- [x] Lighthouse (Zeit)
+- [x] Purgecss
 - [ ] Black
 - [ ] Flake8
 - [ ] Mypy
 - [ ] MirageJS
 - [ ] Code Climate or Codacy
+- [ ] LogRocket
+- [ ] Check TypeScript config https://blog.geographer.fr/eslint-guide#typescript-project
