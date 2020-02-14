@@ -15,6 +15,13 @@ module.exports = {
             content: ["./components/**/*.tsx", "./pages/**/*.tsx"],
             defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
           }
-        })
+        }),
+    ...(process.env.NODE_ENV === "production"
+      ? {
+          cssnano: {
+            preset: "default"
+          }
+        }
+      : {})
   }
 };

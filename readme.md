@@ -29,6 +29,7 @@
 - [x] Coverage
 - [x] Lighthouse (Zeit)
 - [x] Purgecss
+- [x] cssnano
 - [ ] Black
 - [ ] Flake8
 - [ ] Mypy
