@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "@cypress/code-coverage": "^1.12.1",
+    "@fullhuman/postcss-purgecss": "^2.0.6",
     "@percy/cypress": "^2.2.0",
     "@sentry/webpack-plugin": "^1.9.3",
     "@types/node": "^13.1.8",
