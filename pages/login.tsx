@@ -19,12 +19,12 @@ const Home = (): JSX.Element => (
       </div>
     </header>
     <main className="container mx-auto">
-      <h1 className="mt-16 mb-6 text-2xl text-center text-gray-800">
+      <h1 className="mt-8 md:mt-16 mb-6 text-2xl text-center text-gray-800">
         Welcome back, please login
       </h1>
-      <form className="w-1/3 mx-auto p-16 bg-white shadow-md rounded-sm border-t-4 border-blue-500">
+      <form className="md:w-3/5 lg:w-2/5 mx-4 md:mx-auto p-4 md:p-16 bg-white shadow-md rounded-sm border-t-4 border-blue-500">
         <label className="text-gray-600 font-bold text-sm">
-          Email
+          Email Address
           <input
             name="email"
             type="email"
