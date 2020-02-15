@@ -24,16 +24,16 @@
 - [x] Prettier
 - [x] Report errors (https://github.com/cypress-io/cypress-example-circleci-orb)
 - [x] Percy
-- [x] AccessLint
 - [x] Sentry
 - [x] Coverage
 - [x] Lighthouse (Zeit)
 - [x] Purgecss
 - [x] cssnano
+- [ ] MirageJS
+- [ ] LogRocket
+- [ ] AccessLint
+- [ ] Code Climate or Codacy
+- [ ] Check TypeScript config https://blog.geographer.fr/eslint-guide#typescript-project
 - [ ] Black
 - [ ] Flake8
 - [ ] Mypy
-- [ ] MirageJS
-- [ ] Code Climate or Codacy
-- [ ] LogRocket
-- [ ] Check TypeScript config https://blog.geographer.fr/eslint-guide#typescript-project
