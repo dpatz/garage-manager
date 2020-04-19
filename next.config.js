@@ -4,7 +4,7 @@ const withSourceMaps = require("@zeit/next-source-maps")();
 module.exports = withCSS(
   withSourceMaps({
     env: {
-      SENTRY_DSN: process.env.SENTRY_DSN
+      SENTRY_DSN: process.env.SENTRY_DSN,
     },
     webpack: (config, { isServer, buildId }) => {
       // In `pages/_app.js`, Sentry is imported from @sentry/node. While
@@ -48,12 +48,12 @@ module.exports = withCSS(
             include: ".next",
             // configFile: ".sentryclirc"
             urlPrefix: "/_next",
-            stripPrefix: ["/.next"]
+            stripPrefix: ["/.next"],
           })
         );
       }
 
       return config;
-    }
+    },
   })
 );

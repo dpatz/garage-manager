@@ -1,4 +1,5 @@
 # Install Cypress
+
 Follow instructions [on their website](https://docs.cypress.io/guides/getting-started/installing-cypress.html#System-requirements) for installation
 
 [Set up a project](https://docs.cypress.io/guides/dashboard/projects.html#Setup)

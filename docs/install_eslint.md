@@ -1,9 +1,12 @@
 # Install ESLint
+
 Install dependencies:
+
 - `npm install --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin`
 - `npm install eslint-plugin-cypress --save-dev`
 
 Lint code:
+
 - `npx eslint . --ext .js,.jsx,.ts,.tsx`
 
 Refer to plugins for more details

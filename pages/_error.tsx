@@ -12,7 +12,7 @@ interface MyErrorProps {
 const MyError = ({
   statusCode,
   hasGetInitialPropsRun,
-  err
+  err,
 }: MyErrorProps): JSX.Element => {
   if (!hasGetInitialPropsRun && err) {
     // getInitialProps is not called in case of
@@ -27,7 +27,7 @@ const MyError = ({
 MyError.getInitialProps = async ({
   res,
   err,
-  asPath
+  asPath,
 }: NextPageContext): Promise<ErrorProps> => {
   // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
   // @ts-ignore

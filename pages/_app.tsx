@@ -5,7 +5,7 @@ import "../styles/index.css";
 
 Sentry.init({
   dsn: process.env.SENTRY_DSN,
-  enabled: process.env.NODE_ENV === "production"
+  enabled: process.env.NODE_ENV === "production",
 });
 
 class MyApp extends App {
