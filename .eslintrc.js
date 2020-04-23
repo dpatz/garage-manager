@@ -29,9 +29,17 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint", "cypress", "prettier"],
+  plugins: [
+    "react",
+    "react-hooks",
+    "@typescript-eslint",
+    "cypress",
+    "prettier"
+  ],
   rules: {
     "react/jsx-filename-extension": [1, { extensions: [".tsx", ".jsx"] }],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
     "prettier/prettier": "error",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-var-requires": "off",
