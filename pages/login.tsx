@@ -2,6 +2,13 @@ import React, { useState } from "react";
 import Router from "next/router";
 import Head from "next/head";
 import Link from "next/link";
+import { Response, Server } from "miragejs";
+
+new Server({
+  routes(): void {
+    this.post("/api/auth", () => new Response(200));
+  },
+});
 
 type InputProps = {
   label: string;
