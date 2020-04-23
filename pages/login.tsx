@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Router from "next/router";
 import Head from "next/head";
 import Link from "next/link";
 
@@ -95,6 +96,8 @@ const Home = (): JSX.Element => {
     if (response.status != 200) {
       const error = await response.text();
       setError(error);
+    } else {
+      Router.push("/");
     }
   };
 
