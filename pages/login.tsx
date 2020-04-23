@@ -6,7 +6,14 @@ import { Response, Server } from "miragejs";
 
 new Server({
   routes(): void {
-    this.post("/api/auth", () => new Response(200));
+    this.post("/api/auth", (_, request) => {
+      const json = JSON.parse(request.requestBody);
+      if (json.email === "dan@example.com") {
+        return new Response(200);
+      } else {
+        return new Response(401, {}, "Invalid username or password");
+      }
+    });
   },
 });
 
@@ -148,6 +155,7 @@ const Home = (): JSX.Element => {
             className={`flex items-center mb-2 ${
               error ? "visible" : "invisible"
             }`}
+            data-test-error
           >
             <ErrorIcon />
             <span className="text-red-700">{error || "No errors"}</span>
