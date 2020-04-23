@@ -1,8 +1,8 @@
-describe("The login form", function() {
-  it("allows users to login", function() {
+describe("The login form", function () {
+  it("allows users to login", function () {
     cy.visit("/login");
-    cy.get('[name="email"]').type("dan@example.com");
-    cy.get('[name="password"]').type("password");
+    cy.get('[name="email"]').type("d@patz.me");
+    cy.get('[name="password"]').type("pass");
 
     cy.percySnapshot();
 
