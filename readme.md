@@ -31,9 +31,9 @@
 - [x] cssnano
 - [ ] MirageJS
 - [ ] LogRocket
-- [ ] AccessLint
 - [ ] Code Climate or Codacy
 - [ ] Check TypeScript config https://blog.geographer.fr/eslint-guide#typescript-project
+- [ ] Maybe use https://github.com/react-hook-form/react-hook-form
 - [ ] Black
 - [ ] Flake8
 - [ ] Mypy
