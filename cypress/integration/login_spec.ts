@@ -6,7 +6,7 @@ describe("The login form", function () {
 
     cy.percySnapshot();
 
-    cy.get("button").click();
+    cy.get('[type="submit"]').click();
 
     cy.url().should("eq", "http://localhost:3000/");
   });
@@ -16,7 +16,7 @@ describe("The login form", function () {
     cy.get('[name="email"]').type("lee@example.com");
     cy.get('[name="password"]').type("pass");
 
-    cy.get("button").click();
+    cy.get('[type="submit"]').click();
 
     cy.url().should("eq", "http://localhost:3000/login");
     cy.get("[data-test-error]").contains("Invalid username or password");

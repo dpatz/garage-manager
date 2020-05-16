@@ -1,5 +1,7 @@
 import { NowRequest, NowResponse } from "@now/node";
 import faunadb from "faunadb";
+import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
 
 interface User {
   email: string;
@@ -35,12 +37,20 @@ export default async (
 
   const { email, password } = request.body;
   const user = await getUser(email);
+  const isPasswordCorrect = await bcrypt.compare(
+    password,
+    user?.password || ""
+  );
 
-  if (password != user?.password) {
+  if (!user?.password || !isPasswordCorrect) {
     response.status(401).send("Invalid username or password");
     return;
   }
 
-  response.setHeader("Set-Cookie", "token=123");
+  const token = jwt.sign({ email: "email" }, process.env.SECRET_KEY as string);
+  const cookieParams = [`token=${token}`, "Path=/", "Secure"].filter(
+    (param) => param !== "Secure" || process.env.NODE_ENV !== "development"
+  );
+  response.setHeader("Set-Cookie", cookieParams.join("; "));
   response.status(200).send("OK");
 };

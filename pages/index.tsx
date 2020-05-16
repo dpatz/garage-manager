@@ -1,21 +1,17 @@
-import React from "react";
-import Head from "next/head";
+import React, { useEffect } from "react";
+import { useAuth } from "../context/auth-context";
+import Router from "next/router";
 
-const Home = (): JSX.Element => (
-  <div>
-    <Head>
-      <title>Garage Manager</title>
-    </Head>
+const Home = (): JSX.Element => {
+  const { isAuthenticated } = useAuth();
 
-    <header className="h-full bg-white">
-      <div className="container py-4 mx-auto">
-        <h1 className="text-2xl text-center uppercase">
-          <strong>Garage</strong>
-          <span className="font-thin">Manager</span>
-        </h1>
-      </div>
-    </header>
-  </div>
-);
+  useEffect(() => {
+    if (!isAuthenticated) {
+      Router.push("/login");
+    }
+  });
+
+  return <div></div>;
+};
 
 export default Home;

@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Router from "next/router";
 import Head from "next/head";
-import Link from "next/link";
+import { useAuth } from "../context/auth-context";
 import { Response, Server } from "miragejs";
+import Cookies from "js-cookie";
 
 new Server({
   routes(): void {
     this.post("/api/auth", (_, request) => {
       const json = JSON.parse(request.requestBody);
       if (json.email === "dan@example.com") {
+        Cookies.set("token", "123");
         return new Response(200);
       } else {
         return new Response(401, {}, "Invalid username or password");
@@ -27,10 +29,7 @@ const Input = ({
 }: InputProps & React.HTMLProps<HTMLInputElement>): JSX.Element => (
   <label className="text-sm font-bold text-gray-600">
     {label}
-    <input
-      className="block w-full p-2 mt-1 mb-4 text-lg text-gray-800 border-2 border-gray-300 rounded-sm"
-      {...attrs}
-    />
+    <input className="block w-full mt-1 mb-4 form-input" {...attrs} />
   </label>
 );
 
@@ -91,29 +90,24 @@ const Home = (): JSX.Element => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const { login, isAuthenticated } = useAuth();
   const handleSubmit = async (e: React.FormEvent): Promise<void> => {
     e.preventDefault();
 
     setError("");
 
-    const response = await fetch("/api/auth", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    });
-
-    if (response.status != 200) {
-      const error = await response.text();
+    try {
+      await login(email, password);
+    } catch (error) {
       setError(error);
-    } else {
-      Router.push("/");
     }
   };
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      Router.push("/");
+    }
+  });
 
   return (
     <div>
@@ -121,16 +115,6 @@ const Home = (): JSX.Element => {
         <title>Garage Manager - Login</title>
       </Head>
 
-      <header className="h-full bg-white">
-        <div className="container py-4 mx-auto text-2xl text-center uppercase">
-          <Link href="/">
-            <a>
-              <span className="font-bold">Garage</span>
-              <span className="font-thin">Manager</span>
-            </a>
-          </Link>
-        </div>
-      </header>
       <main className="container mx-auto">
         <h1 className="mt-8 mb-6 text-2xl text-center text-gray-800 md:mt-16">
           Welcome back, please login
@@ -140,14 +124,15 @@ const Home = (): JSX.Element => {
           onSubmit={handleSubmit}
         >
           <EmailInput
+            autoFocus
             value={email}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>): void =>
+            onInput={(e: React.ChangeEvent<HTMLInputElement>): void =>
               setEmail(e.target.value)
             }
           />
           <PasswordInput
             value={password}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>): void =>
+            onInput={(e: React.ChangeEvent<HTMLInputElement>): void =>
               setPassword(e.target.value)
             }
           />
