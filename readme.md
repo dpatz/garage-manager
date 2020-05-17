@@ -29,8 +29,9 @@
 - [x] Lighthouse (Zeit)
 - [x] Purgecss
 - [x] cssnano
-- [ ] MirageJS
+- [x] MirageJS
 - [ ] LogRocket
+- [ ] CircleCI cache https://github.com/zeit/next.js/blob/master/errors/no-cache.md#circleci
 - [ ] Code Climate or Codacy
 - [ ] Check TypeScript config https://blog.geographer.fr/eslint-guide#typescript-project
 - [ ] Maybe use https://github.com/react-hook-form/react-hook-form
