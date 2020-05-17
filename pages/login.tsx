@@ -2,22 +2,6 @@ import React, { useState, useEffect } from "react";
 import Router from "next/router";
 import Head from "next/head";
 import { useAuth } from "../context/auth-context";
-import { Response, Server } from "miragejs";
-import Cookies from "js-cookie";
-
-new Server({
-  routes(): void {
-    this.post("/api/auth", (_, request) => {
-      const json = JSON.parse(request.requestBody);
-      if (json.email === "dan@example.com") {
-        Cookies.set("token", "123");
-        return new Response(200);
-      } else {
-        return new Response(401, {}, "Invalid username or password");
-      }
-    });
-  },
-});
 
 type InputProps = {
   label: string;
@@ -126,13 +110,13 @@ const Home = (): JSX.Element => {
           <EmailInput
             autoFocus
             value={email}
-            onInput={(e: React.ChangeEvent<HTMLInputElement>): void =>
+            onChange={(e: React.ChangeEvent<HTMLInputElement>): void =>
               setEmail(e.target.value)
             }
           />
           <PasswordInput
             value={password}
-            onInput={(e: React.ChangeEvent<HTMLInputElement>): void =>
+            onChange={(e: React.ChangeEvent<HTMLInputElement>): void =>
               setPassword(e.target.value)
             }
           />

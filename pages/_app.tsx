@@ -5,6 +5,11 @@ import * as Sentry from "@sentry/node";
 import "../styles/index.css";
 import { useAuth, AuthProvider } from "../context/auth-context";
 import Cookies from "js-cookie";
+import { makeServer } from "../mirage";
+
+if (process.env.NODE_ENV === "development") {
+  makeServer();
+}
 
 Sentry.init({
   dsn: process.env.SENTRY_DSN,
