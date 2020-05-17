@@ -9,6 +9,7 @@ interface AuthProviderInterface {
   isAuthenticated?: boolean;
 }
 
+/* istanbul ignore next */
 const AuthContext = React.createContext({
   login: () => undefined,
   logout: () => undefined,
@@ -74,6 +75,7 @@ function AuthProvider(props: any): any {
 
 function useAuth(): AuthProviderInterface {
   const context = React.useContext(AuthContext);
+  /* istanbul ignore if */
   if (context === undefined) {
     throw new Error(`useAuth must be used within a AuthProvider`);
   }
