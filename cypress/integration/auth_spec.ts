@@ -24,7 +24,7 @@ describe("App authentication", function () {
     cy.url().should("eq", "http://localhost:3000/login");
   });
 
-  it("show an error if login fails", function () {
+  it("shows an error if login fails", function () {
     cy.visit("/login");
     cy.get('[name="email"]').type("lee@example.com");
     cy.get('[name="password"]').type("pass");
