@@ -1,4 +1,4 @@
-describe("App authentication", function () {
+describe("Authentication", function () {
   afterEach(() => {
     cy.clearCookies();
   });

@@ -8,6 +8,10 @@ interface User {
   password: string;
 }
 
+interface UserResult {
+  data: User;
+}
+
 const getUser = async (email: string): Promise<User | null> => {
   const client = new faunadb.Client({
     secret: process.env.FAUNA_DB_SECRET as string,
@@ -15,11 +19,9 @@ const getUser = async (email: string): Promise<User | null> => {
   const q = faunadb.query;
 
   try {
-    const result = await client.query(
+    const result: UserResult = await client.query(
       q.Get(q.Match(q.Index("users_by_email"), email))
     );
-    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-    // @ts-ignore
     return { email: result.data.email, password: result.data.password };
   } catch (e) {
     return null;
@@ -51,6 +53,7 @@ export default async (
   const cookieParams = [`token=${token}`, "Path=/", "Secure"].filter(
     (param) => param !== "Secure" || process.env.NODE_ENV !== "development"
   );
+
   response.setHeader("Set-Cookie", cookieParams.join("; "));
   response.status(200).send("OK");
 };
