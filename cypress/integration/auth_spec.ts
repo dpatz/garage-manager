@@ -5,7 +5,12 @@ describe("Authentication", function () {
 
   it("allows users to login", function () {
     cy.visit("/login");
-    cy.get('[name="email"]').type("dan@example.com");
+    // Remove (wait and force) when Cypress fixes their bug:
+    // https://github.com/cypress-io/cypress/issues/5743,
+    // https://github.com/cypress-io/cypress/issues/7306
+    // eslint-disable-next-line cypress/no-unnecessary-waiting
+    cy.wait(100);
+    cy.get('[name="email"]').type("dan@example.com", { force: true });
     cy.get('[name="password"]').type("password");
 
     cy.percySnapshot();
