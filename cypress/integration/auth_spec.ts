@@ -1,4 +1,8 @@
-describe("The login form", function () {
+describe("App authentication", function () {
+  afterEach(() => {
+    cy.clearCookies();
+  });
+
   it("allows users to login", function () {
     cy.visit("/login");
     cy.get('[name="email"]').type("dan@example.com");
@@ -9,6 +13,15 @@ describe("The login form", function () {
     cy.get('[type="submit"]').click();
 
     cy.url().should("eq", "http://localhost:3000/");
+  });
+
+  it("allows users to logout", function () {
+    cy.setCookie("token", "123");
+    cy.visit("/");
+
+    cy.contains("Logout").click();
+
+    cy.url().should("eq", "http://localhost:3000/login");
   });
 
   it("show an error if login fails", function () {
