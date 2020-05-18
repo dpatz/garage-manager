@@ -4,6 +4,8 @@
 /* purgecss end ignore */
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;700;900&display=swap");
+
 body {
-  @apply text-gray-900 bg-gray-200;
+  @apply text-gray-800 bg-gray-200;
 }

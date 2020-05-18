@@ -14,12 +14,9 @@ export function Header(): JSX.Element {
     <header className="flex items-center justify-between h-full bg-white">
       <div className="w-1/6"></div>
 
-      <h1 className="w-4/6 py-4 text-2xl text-center uppercase">
+      <h1 className="w-4/6 py-4 text-2xl text-center">
         <Link href="/">
-          <a className="mx-auto">
-            <span className="font-bold">Garage</span>
-            <span className="font-thin">Manager</span>
-          </a>
+          <a className="font-bold uppercase">Jarag</a>
         </Link>
       </h1>
 

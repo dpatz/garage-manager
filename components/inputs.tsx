@@ -8,9 +8,12 @@ const Input = ({
   label,
   ...attrs
 }: InputProps & React.HTMLProps<HTMLInputElement>): JSX.Element => (
-  <label className="text-sm font-bold text-gray-600">
+  <label className="text-sm font-bold text-gray-600 uppercase">
     {label}
-    <input className="block w-full mt-1 mb-4 form-input" {...attrs} />
+    <input
+      className="block w-full mt-1 mb-4 text-gray-800 form-input"
+      {...attrs}
+    />
   </label>
 );
 
