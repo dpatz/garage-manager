@@ -4,7 +4,8 @@
     "SENTRY_AUTH_TOKEN": "@sentry_auth_token",
     "SENTRY_ORG": "@sentry_org",
     "SENTRY_PROJECT": "@sentry_project",
-    "FAUNA_DB_SECRET": "@fauna_db_secret"
+    "FAUNA_DB_SECRET": "@fauna_db_secret",
+    "BASE_GARAGE_URL": "@base_garage_url"
   },
   "build": {
     "env": {

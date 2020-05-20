@@ -13,6 +13,24 @@ export function makeServer(): Server {
           return new Response(401, {}, "Invalid username or password");
         }
       });
+      this.get(
+        "/api/garage_status",
+        () => {
+          return new Response(
+            200,
+            { "Content-Type": "application/json" },
+            JSON.stringify({ isOpen: true })
+          );
+        },
+        { timing: 3000 }
+      );
+      this.get(
+        "/api/garage_toggle",
+        () => {
+          return new Response(200, {}, "OK");
+        },
+        { timing: 3000 }
+      );
     },
   });
 
