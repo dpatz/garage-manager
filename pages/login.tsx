@@ -39,7 +39,7 @@ const LoginPage = (): JSX.Element => {
           Welcome back, please login
         </h1>
         <form
-          className="px-4 border-blue-500 rounded-sm md:shadow-md md:border-t-4 md:bg-white md:mx-4 md:w-1/3 lg:w-1/3 md:mx-auto md:p-16"
+          className="px-4 border-green-500 rounded-sm md:shadow-md md:border-t-4 md:bg-white md:mx-4 md:w-1/3 lg:w-1/3 md:mx-auto md:p-16"
           onSubmit={handleSubmit}
         >
           <EmailInput
@@ -66,7 +66,7 @@ const LoginPage = (): JSX.Element => {
           </div>
           <button
             type="submit"
-            className="block w-full p-3 text-sm font-bold text-white uppercase bg-blue-500 rounded-md hover:bg-blue-600"
+            className="block w-full p-3 text-sm font-bold text-white uppercase bg-green-500 rounded-md hover:bg-green-600"
           >
             Login
           </button>
