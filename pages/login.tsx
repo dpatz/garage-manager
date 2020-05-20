@@ -39,7 +39,7 @@ const LoginPage = (): JSX.Element => {
           Welcome back, please login
         </h1>
         <form
-          className="px-4 border-green-500 rounded-sm md:shadow-md md:border-t-4 md:bg-white md:mx-4 md:w-1/3 lg:w-1/3 md:mx-auto md:p-16"
+          className="px-4 border-green-500 rounded-sm md:shadow-md md:border-t-4 md:bg-white md:mx-4 md:w-1/2 lg:w-1/3 md:mx-auto md:p-16"
           onSubmit={handleSubmit}
         >
           <EmailInput
