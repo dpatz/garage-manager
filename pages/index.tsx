@@ -39,7 +39,7 @@ const HomePage = (): JSX.Element => {
         disabled={isOpen === null}
         onClick={toggleGarageStatus}
       >
-        <Garage isOpen={isOpen} animate={isOpen !== null} />
+        <Garage isOpen={isOpen} />
       </button>
     </div>
   );

@@ -1,17 +1,19 @@
-import React from "react";
-import { Spring, config } from "react-spring/renderprops.cjs";
+import React, { MutableRefObject, useEffect, useRef } from "react";
+import { Spring } from "react-spring/renderprops.cjs";
 
 interface GarageProps {
   isOpen: boolean | null;
-  animate?: boolean;
 }
 
-export const Garage = ({
-  isOpen,
-  animate = true,
-}: GarageProps): JSX.Element => {
+export const Garage = ({ isOpen }: GarageProps): JSX.Element => {
   const from = isOpen && isOpen !== null ? 0 : 190;
   const to = isOpen && isOpen !== null ? 190 : 0;
+
+  const prevStatusRef: MutableRefObject<boolean | null> = useRef(null);
+  useEffect(() => {
+    prevStatusRef.current = isOpen;
+  });
+  const animate = prevStatusRef.current !== null;
 
   return (
     <Spring
@@ -26,7 +28,6 @@ export const Garage = ({
           <g>
             <rect
               x="50"
-              // eslint-disable-next-line react/prop-types
               y={200 - props.y}
               width="200"
               height="40"
@@ -34,7 +35,6 @@ export const Garage = ({
             ></rect>
             <rect
               x="50"
-              // eslint-disable-next-line react/prop-types
               y={150 - props.y}
               width="200"
               height="40"
@@ -42,7 +42,6 @@ export const Garage = ({
             ></rect>
             <rect
               x="50"
-              // eslint-disable-next-line react/prop-types
               y={100 - props.y}
               width="200"
               height="40"
@@ -50,7 +49,6 @@ export const Garage = ({
             ></rect>
             <rect
               x="50"
-              // eslint-disable-next-line react/prop-types
               y={50 - props.y}
               width="200"
               height="40"
