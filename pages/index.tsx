@@ -4,7 +4,7 @@ import Router from "next/router";
 import { Garage } from "../components/garage";
 
 const HomePage = (): JSX.Element => {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, logout } = useAuth();
 
   useEffect(() => {
     if (!isAuthenticated) {
@@ -18,14 +18,38 @@ const HomePage = (): JSX.Element => {
   useEffect(() => {
     const setGarageStatus = async (): Promise<void> => {
       const response = await fetch("/api/garage_status");
+
+      if (response.status === 401) {
+        console.log("Not authenticated");
+        logout();
+        return;
+      }
+
+      if (response.status !== 200) {
+        console.log("Something went wrong");
+        return;
+      }
+
       const data = await response.json();
       setIsOpen(data.isOpen);
     };
     setGarageStatus();
-  }, [setIsOpen]);
+  }, [setIsOpen, logout]);
 
   const toggleGarageStatus = async (): Promise<void> => {
-    fetch("/api/garage_toggle");
+    const response = await fetch("/api/garage_toggle");
+
+    if (response.status === 401) {
+      console.log("Not authenticated");
+      logout();
+      return;
+    }
+
+    if (response.status !== 200) {
+      console.log("Something went wrong");
+      return;
+    }
+
     setIsOpen(!isOpen);
   };
 

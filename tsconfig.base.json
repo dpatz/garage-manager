@@ -12,8 +12,6 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "jsx": "preserve",
-    "importHelpers": true,
-    "removeComments": true
+    "jsx": "preserve"
   }
 }
