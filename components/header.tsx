@@ -17,7 +17,7 @@ export function Header(): JSX.Element {
       <h1 className="w-4/6 py-4 text-2xl text-center">
         <Link href="/">
           <a className="font-bold uppercase focus:outline-none focus:underline hover:underline">
-            Jarag
+            Garagely
           </a>
         </Link>
       </h1>
