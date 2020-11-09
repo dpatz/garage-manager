@@ -4,6 +4,8 @@ import Cookies from "js-cookie";
 export function makeServer(): Server {
   const server = new Server({
     routes(): void {
+      this.passthrough("/_next/static/development/_devPagesManifest.json");
+
       this.post("/api/auth", (_, request) => {
         const json = JSON.parse(request.requestBody);
         if (json.email === "dan@example.com") {
