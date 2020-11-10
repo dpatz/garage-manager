@@ -21,8 +21,8 @@
     "faunadb": "2.14.2",
     "js-cookie": "2.2.1",
     "jsonwebtoken": "8.5.1",
-    "node-fetch": "^2.6.1",
     "next": "10.0.1",
+    "node-fetch": "^2.6.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-spring": "^8.0.27"
