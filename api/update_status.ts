@@ -2,22 +2,22 @@ import { NowRequest, NowResponse } from "@now/node";
 import faunadb, { query as q } from "faunadb";
 import { isGarageOpen } from "./garage_status";
 
-interface GarageStatus {
+interface GarageLog {
   status: string;
 }
 
-interface GarageStatusResult {
-  data: GarageStatus;
+interface GarageLogResult {
+  data: GarageLog;
   ts: number;
 }
 
-const updateStatus = async (status: string): Promise<GarageStatusResult> => {
+const updateLog = async (status: string): Promise<GarageLogResult> => {
   const client = new faunadb.Client({
     secret: process.env.FAUNA_DB_SECRET as string,
   });
 
   return await client.query(
-    q.Create(q.Collection("GarageStatus"), {
+    q.Create(q.Collection("GarageLog"), {
       data: { status },
     })
   );
@@ -41,7 +41,7 @@ export default async (
 
   const isOpen = await isGarageOpen();
 
-  await updateStatus(isOpen ? "open" : "closed");
+  await updateLog(isOpen ? "open" : "closed");
 
   response.status(200).send("OK");
 };
