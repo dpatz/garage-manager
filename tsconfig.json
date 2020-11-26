@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "strict": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
   },
   "exclude": ["node_modules", "cypress"],
   "extends": "./tsconfig.base.json",

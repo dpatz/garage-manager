@@ -27,8 +27,10 @@ function MyApp({ Component, pageProps, err }: any): JSX.Element {
       <Head>
         <title>Garage Manager</title>
       </Head>
-      <Header />
-      <Component {...modifiedPageProps} />
+      <div className="flex flex-col h-screen">
+        <Header />
+        <Component {...modifiedPageProps} />
+      </div>
     </AuthProvider>
   );
 }
