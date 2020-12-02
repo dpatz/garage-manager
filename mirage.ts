@@ -49,6 +49,27 @@ export function makeServer(): Server {
                     1000000,
                   "closed",
                 ],
+                [
+                  dayjs().subtract(2, "day").subtract(4, "hour").unix() *
+                    1000000,
+                  "open",
+                ],
+                [
+                  dayjs().subtract(4, "day").add(3, "hour").unix() * 1000000,
+                  "closed",
+                ],
+                [
+                  dayjs().subtract(4, "day").add(2, "hour").unix() * 1000000,
+                  "open",
+                ],
+                [
+                  dayjs().subtract(5, "day").add(3, "hour").unix() * 1000000,
+                  "closed",
+                ],
+                [
+                  dayjs().subtract(5, "day").add(2, "hour").unix() * 1000000,
+                  "open",
+                ],
               ],
             })
           );

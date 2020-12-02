@@ -35,11 +35,11 @@ const LoginPage = (): JSX.Element => {
       </Head>
 
       <main className="container mx-auto">
-        <h1 className="mt-6 mb-4 text-2xl text-center text-gray-800 md:mt-8 md:mb-6 md:mt-16">
+        <h1 className="mt-16 mb-6 text-2xl text-center text-gray-800">
           Welcome back, please login
         </h1>
         <form
-          className="px-4 border-green-500 rounded-sm md:shadow-md md:border-t-4 md:bg-white md:mx-4 md:w-1/2 lg:w-1/3 md:mx-auto md:p-16"
+          className="px-4 mx-4 border-green-500 rounded-sm sm:w-full sm:shadow-md sm:border-t-4 sm:bg-white sm:max-w-md sm:mx-auto sm:p-16"
           onSubmit={handleSubmit}
         >
           <EmailInput

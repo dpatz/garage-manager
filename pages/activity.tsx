@@ -4,6 +4,7 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
+import Router from "next/router";
 
 interface GarageStatus {
   status: string;
@@ -15,7 +16,7 @@ dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.tz.setDefault("America/Los_Angeles");
 
-const getGarageStatuses = async (logout: any): Promise<GarageStatus[]> => {
+const fetchGarageStatuses = async (logout: any): Promise<GarageStatus[]> => {
   const response = await fetch("/api/garage_statuses");
 
   if (response.status === 401) {
@@ -36,46 +37,62 @@ const getGarageStatuses = async (logout: any): Promise<GarageStatus[]> => {
   });
 };
 
+const GarageStatuses = (garageStatuses: GarageStatus[]): JSX.Element => {
+  const [isRelativeTime, setIsRelativeTime] = useState(true);
+  const now = dayjs();
+
+  return (
+    <ul className="divide-y sm:space-y-4 sm:divide-transparent">
+      {garageStatuses.map((garageStatus, index) => {
+        return (
+          <li
+            key={index}
+            className="flex justify-between px-6 py-4 bg-white sm:w-full sm:rounded"
+          >
+            <span>{garageStatus.status === "open" ? "Open" : "Closed"}</span>
+            <button
+              className="text-sm text-gray-500"
+              onClick={(): void => setIsRelativeTime(!isRelativeTime)}
+            >
+              {isRelativeTime
+                ? garageStatus.timestamp.from(now)
+                : garageStatus.timestamp.format("MM/DD h:mm A")}
+            </button>
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
+
 const ActivityPage = (): JSX.Element => {
-  const { logout } = useAuth();
+  const { isAuthenticated, logout } = useAuth();
   const [garageStatuses, setGarageStatuses] = useState([]) as [
     GarageStatus[],
     any
   ];
-  const [isRelativeTime, setIsRelativeTime] = useState(true);
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      Router.push("/login");
+    }
+  });
 
   useEffect(() => {
     const garageStatusesEffect = async (): Promise<void> => {
-      const s = await getGarageStatuses(logout);
+      const s = await fetchGarageStatuses(logout);
       setGarageStatuses(s);
     };
     garageStatusesEffect();
   }, [setGarageStatuses, logout]);
 
-  const now = dayjs();
-
   return (
-    <div className="flex items-center justify-center flex-grow py-4 overflow-y-auto">
-      <ul className="w-full h-full max-w-sm mx-auto space-y-4">
-        {garageStatuses.map((garageStatus, index) => {
-          return (
-            <li
-              key={index}
-              className="flex justify-between px-6 py-4 bg-white rounded"
-            >
-              <span>{garageStatus.status === "open" ? "Open" : "Closed"}</span>
-              <button
-                className="text-sm text-gray-500"
-                onClick={(): void => setIsRelativeTime(!isRelativeTime)}
-              >
-                {isRelativeTime
-                  ? garageStatus.timestamp.from(now)
-                  : garageStatus.timestamp.format("MM/DD h:mm A")}
-              </button>
-            </li>
-          );
-        })}
-      </ul>
+    <div className="min-h-0 overflow-y-auto">
+      <div className="flex items-center justify-center flex-grow sm:py-4">
+        <div className="w-full mx-auto sm:max-w-sm">
+          {!garageStatuses ? "" : GarageStatuses(garageStatuses)}
+        </div>
+      </div>
     </div>
   );
 };
