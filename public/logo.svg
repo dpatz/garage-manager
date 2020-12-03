@@ -1,0 +1,10 @@
+<svg viewBox="0 0 300 240" xmlns="http://www.w3.org/2000/svg">
+  <defs></defs>
+  <g transform="matrix(1, 0, 0, 1, 0, -0.000074)">
+    <rect x="50" y="200" width="200" height="40" class="text-green-500 fill-current" style="fill: rgb(72, 187, 120);"></rect>
+    <rect x="50" y="150" width="200" height="40" class="text-green-500 fill-current" style="fill: rgb(72, 187, 120);"></rect>
+    <rect x="50" y="100" width="200" height="40" class="text-green-500 fill-current" style="fill: rgb(72, 187, 120);"></rect>
+    <rect x="50" y="50" width="200" height="40" class="text-green-500 fill-current" style="fill: rgb(72, 187, 120);"></rect>
+  </g>
+  <path d="M 0 0 L 300 0 L 300 240 L 260 240 L 260 40 L 40 40 L 40 240 L 0 240 Z" class="text-gray-700 fill-current" style="fill: rgb(74, 85, 104);"></path>
+</svg>

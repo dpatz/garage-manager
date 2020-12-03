@@ -25,6 +25,7 @@
     "jsonwebtoken": "8.5.1",
     "next": "10.0.1",
     "node-fetch": "^2.6.1",
+    "pwa-asset-generator": "4.0.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-spring": "^8.0.27"
