@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../context/auth-context";
 import dayjs from "dayjs";
+import duration from "dayjs/plugin/duration";
 import relativeTime from "dayjs/plugin/relativeTime";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
@@ -11,6 +12,7 @@ interface GarageStatus {
   timestamp: dayjs.Dayjs;
 }
 
+dayjs.extend(duration);
 dayjs.extend(relativeTime);
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -37,6 +39,12 @@ const fetchGarageStatuses = async (logout: any): Promise<GarageStatus[]> => {
   });
 };
 
+const getDiff = (from: dayjs.Dayjs, to: dayjs.Dayjs): string => {
+  const diff = from.diff(to);
+  const duration_ = dayjs.duration(diff);
+  return duration_.humanize();
+};
+
 const GarageStatuses = (garageStatuses: GarageStatus[]): JSX.Element => {
   const [isRelativeTime, setIsRelativeTime] = useState(true);
   const now = dayjs();
@@ -49,7 +57,17 @@ const GarageStatuses = (garageStatuses: GarageStatus[]): JSX.Element => {
             key={index}
             className="flex justify-between px-6 py-4 bg-white sm:w-full sm:rounded"
           >
-            <span>{garageStatus.status === "open" ? "Open" : "Closed"}</span>
+            <span>
+              {garageStatus.status === "open" ? "Open " : "Closed "}
+              <span className="text-xs text-gray-500">
+                {index > 0
+                  ? ` for ${getDiff(
+                      garageStatus.timestamp,
+                      garageStatuses[index - 1].timestamp
+                    )}`
+                  : ""}
+              </span>
+            </span>
             <button
               className="text-sm text-gray-500"
               onClick={(): void => setIsRelativeTime(!isRelativeTime)}
