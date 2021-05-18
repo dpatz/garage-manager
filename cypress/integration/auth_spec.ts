@@ -3,7 +3,7 @@ describe("Authentication", function () {
     cy.clearCookies();
   });
 
-  it("allows users to login", function () {
+  it.skip("allows users to login", function () {
     cy.visit("/login");
     // Remove (wait and force) when Cypress fixes their bug:
     // https://github.com/cypress-io/cypress/issues/5743,
@@ -20,7 +20,7 @@ describe("Authentication", function () {
     cy.url().should("eq", "http://localhost:3000/");
   });
 
-  it("allows users to logout", function () {
+  it.skip("allows users to logout", function () {
     cy.setCookie("token", "123");
     cy.visit("/");
 
@@ -29,7 +29,7 @@ describe("Authentication", function () {
     cy.url().should("eq", "http://localhost:3000/login");
   });
 
-  it("shows an error if login fails", function () {
+  it.skip("shows an error if login fails", function () {
     cy.visit("/login");
     cy.get('[name="email"]').type("lee@example.com");
     cy.get('[name="password"]').type("pass");
